@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Nullable>annotations</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1591;</NoWarn>
+    <DocumentationFile>C:\testes\backend\TestBackEndApi\TestBackEndApi.Api\TestBackEndApi.Api.xml</DocumentationFile>
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+    <PackageReference Include="SimpleInjector" Version="5.3.0" />
+    <PackageReference Include="SimpleInjector.Integration.AspNetCore.Mvc.Core" Version="5.3.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TestBackEndApi.Domain\TestBackEndApi.Domain.csproj" />
+    <ProjectReference Include="..\TestBackEndApi.Infrastructure.CrossCutting.Configuration\TestBackEndApi.Infrastructure.CrossCutting.Configuration.csproj" />
+    <ProjectReference Include="..\TextBackEndApi.Infrastructure.Ioc\TextBackEndApi.Infrastructure.Ioc.csproj" />
+  </ItemGroup>
+
+
+</Project>

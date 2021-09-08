@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Commands\Alunos\**" />
+    <Compile Remove="Queries\Aluno\**" />
+    <EmbeddedResource Remove="Commands\Alunos\**" />
+    <EmbeddedResource Remove="Queries\Aluno\**" />
+    <None Remove="Commands\Alunos\**" />
+    <None Remove="Queries\Aluno\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Profiles\AlunoDtoProfile.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.2" />
+    <PackageReference Include="MediatR" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TestBackEndApi.Infrastructure.Data\TestBackEndApi.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\TestBackEndApi.Infrastructure.Services\TestBackEndApi.Infrastructure.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\" />
+  </ItemGroup>
+
+</Project>
