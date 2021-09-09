@@ -16,18 +16,8 @@ namespace TestBackEndApi.Api.Controllers
             _mediator = mediator;
         }
 
-        //[HttpGet]
-        //private async Task<IActionResult> Get([FromQuery] GetCepQuery query)
-        //{
-        //    var response = await _mediator.Send(query);
-        //    if (response == null) return NotFound();
-        //    if (string.IsNullOrEmpty(response.Cep)) return BadRequest(response);
-        //    return Ok(response);
-        //}
-
-        //Corrigindo Controller
         [HttpGet]
-        public async Task<IActionResult> Active([FromQuery] GetCepQuery query)
+        public async Task<IActionResult> Get([FromQuery] GetCepQuery query)
         {
             var response = await _mediator.Send(query);
             if (response == null) return NotFound();
