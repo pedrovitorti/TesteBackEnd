@@ -1,4 +1,5 @@
 using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +9,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using SimpleInjector;
 using System;
+using System.Reflection;
 using TestBackEndApi.Domain.Profiles;
+using TestBackEndApi.Infrastructure.Services.Interfaces;
 
 namespace TestBackEndApi.Api
 {
@@ -26,6 +29,8 @@ namespace TestBackEndApi.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+
+           
             services.AddControllers();
             services.AddCors();
 
@@ -48,7 +53,10 @@ namespace TestBackEndApi.Api
             #endregion IoC
 
             services.AddMvc();
-
+            //inicializando o MediatR
+            services.AddMediatR(typeof(Startup));
+            services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
+            //
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
